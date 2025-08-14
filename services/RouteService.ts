@@ -1,376 +1,9 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { v4 as uuidv4 } from 'react-native-uuid';
 import { Destination, RouteData, NavigationStep } from '@/types/navigation';
+import destinationsData from '@/data/destinations.json';
 
 const STORAGE_KEY = 'guia_facil_routes';
-
-const DEFAULT_DESTINATIONS: Destination[] = [
-  {
-    id: 'room01',
-    name: 'Sala 01',
-    gps: { lat: -2.52945, lng: -44.30450 },
-    wifi: [
-      { mac: 'AA:BB:CC:DD:EE:01', dbm: -50 },
-      { mac: 'AA:BB:CC:DD:EE:02', dbm: -60 }
-    ],
-    steps: [
-      {
-        instruction: 'Siga em frente acompanhando o piso tátil',
-        rotation: 0,
-        detail: 'Caminhe cerca de 10 passos'
-      },
-      {
-        instruction: 'Vire à direita no próximo corredor',
-        rotation: 90,
-        detail: 'Você ouvirá um bebedouro à esquerda'
-      },
-      {
-        instruction: 'Continue até a porta com a placa tátil Sala 01',
-        rotation: 0,
-        detail: 'Mais 8 a 12 passos'
-      }
-    ]
-  },
-  {
-    id: 'room02',
-    name: 'Sala 02',
-    steps: [
-      {
-        instruction: 'Siga pelo corredor principal',
-        rotation: 0,
-        detail: 'Acompanhe o piso tátil por 15 passos'
-      },
-      {
-        instruction: 'Vire à esquerda após o bebedouro',
-        rotation: -90,
-        detail: 'Som de água indica a proximidade'
-      },
-      {
-        instruction: 'Porta da Sala 02 estará à sua direita',
-        rotation: 90,
-        detail: 'Placa em Braille na porta'
-      }
-    ]
-  },
-  {
-    id: 'room2a',
-    name: 'Sala 2-A',
-    steps: [
-      {
-        instruction: 'Dirija-se ao corredor das salas numeradas',
-        rotation: 0,
-        detail: 'Siga o piso tátil por 12 passos'
-      },
-      {
-        instruction: 'Localize a primeira porta à direita após a Sala 02',
-        rotation: 90,
-        detail: 'Placa tátil identificará a Sala 2-A'
-      }
-    ]
-  },
-  {
-    id: 'room03',
-    name: 'Sala 03',
-    steps: [
-      {
-        instruction: 'Continue pelo corredor principal',
-        rotation: 0,
-        detail: 'Mantenha-se no piso tátil'
-      },
-      {
-        instruction: 'Após 20 passos, localize a terceira porta à direita',
-        rotation: 90,
-        detail: 'Placa em Braille na altura do peito'
-      }
-    ]
-  },
-  {
-    id: 'room04',
-    name: 'Sala 04',
-    steps: [
-      {
-        instruction: 'Siga pelo corredor até o meio do prédio',
-        rotation: 0,
-        detail: 'Aproximadamente 25 passos no piso tátil'
-      },
-      {
-        instruction: 'Sala 04 estará à sua direita',
-        rotation: 90,
-        detail: 'Porta com identificação tátil'
-      }
-    ]
-  },
-  {
-    id: 'room4a',
-    name: 'Sala 4-A',
-    steps: [
-      {
-        instruction: 'Localize a Sala 04 primeiro',
-        rotation: 0,
-        detail: 'Use as instruções da Sala 04'
-      },
-      {
-        instruction: 'Sala 4-A fica adjacente à Sala 04',
-        rotation: 0,
-        detail: 'Próxima porta no mesmo corredor'
-      }
-    ]
-  },
-  {
-    id: 'room06',
-    name: 'Sala 6',
-    steps: [
-      {
-        instruction: 'Dirija-se ao final do corredor principal',
-        rotation: 0,
-        detail: 'Continue por mais 15 passos após a Sala 04'
-      },
-      {
-        instruction: 'Sala 6 estará à sua direita',
-        rotation: 90,
-        detail: 'Última sala antes da escada'
-      }
-    ]
-  },
-  {
-    id: 'room07',
-    name: 'Sala 7',
-    steps: [
-      {
-        instruction: 'Suba as escadas para o andar superior',
-        rotation: 0,
-        detail: 'Corrimão à direita, 12 degraus'
-      },
-      {
-        instruction: 'No topo, vire à esquerda',
-        rotation: -90,
-        detail: 'Primeira porta à esquerda é a Sala 7'
-      }
-    ]
-  },
-  {
-    id: 'room08',
-    name: 'Sala 8',
-    steps: [
-      {
-        instruction: 'Suba para o andar superior',
-        rotation: 0,
-        detail: 'Use o corrimão da escada'
-      },
-      {
-        instruction: 'Continue em frente após a escada',
-        rotation: 0,
-        detail: 'Sala 8 estará à sua frente'
-      }
-    ]
-  },
-  {
-    id: 'room09',
-    name: 'Sala 09',
-    steps: [
-      {
-        instruction: 'Vá para o andar superior',
-        rotation: 0,
-        detail: 'Escada principal, 12 degraus'
-      },
-      {
-        instruction: 'Vire à direita no topo da escada',
-        rotation: 90,
-        detail: 'Primeira porta à direita'
-      }
-    ]
-  },
-  {
-    id: 'room10',
-    name: 'Sala 10',
-    steps: [
-      {
-        instruction: 'Suba para o segundo andar',
-        rotation: 0,
-        detail: 'Use sempre o corrimão'
-      },
-      {
-        instruction: 'Sala 10 fica no final do corredor superior',
-        rotation: 0,
-        detail: 'Continue em frente por 20 passos'
-      }
-    ]
-  },
-  {
-    id: 'front_bathrooms',
-    name: 'Banheiros da frente',
-    steps: [
-      {
-        instruction: 'A partir da entrada principal, vire à direita',
-        rotation: 90,
-        detail: 'Logo após a porta de entrada'
-      },
-      {
-        instruction: 'Continue por 8 passos',
-        rotation: 0,
-        detail: 'Banheiros estarão à sua esquerda'
-      }
-    ]
-  },
-  {
-    id: 'back_bathrooms',
-    name: 'Banheiros dos fundos',
-    steps: [
-      {
-        instruction: 'Siga pelo corredor principal até o final',
-        rotation: 0,
-        detail: 'Continue além de todas as salas'
-      },
-      {
-        instruction: 'Vire à esquerda no final do corredor',
-        rotation: -90,
-        detail: 'Banheiros estarão à sua frente'
-      }
-    ]
-  },
-  {
-    id: 'upstairs_bathrooms',
-    name: 'Banheiros do andar superior',
-    steps: [
-      {
-        instruction: 'Suba a escada principal',
-        rotation: 0,
-        detail: 'Corrimão à direita, 12 degraus'
-      },
-      {
-        instruction: 'No topo, vire à esquerda',
-        rotation: -90,
-        detail: 'Banheiros estarão no final do corredor'
-      }
-    ]
-  },
-  {
-    id: 'computer_room',
-    name: 'Sala de informática',
-    steps: [
-      {
-        instruction: 'Dirija-se ao corredor lateral esquerdo',
-        rotation: -90,
-        detail: 'A partir da entrada principal'
-      },
-      {
-        instruction: 'Continue por 15 passos',
-        rotation: 0,
-        detail: 'Som de computadores indicará proximidade'
-      },
-      {
-        instruction: 'Sala de informática à sua direita',
-        rotation: 90,
-        detail: 'Porta dupla com identificação tátil'
-      }
-    ]
-  },
-  {
-    id: 'playroom',
-    name: 'Sala de recreação',
-    steps: [
-      {
-        instruction: 'Entre pelo corredor lateral direito',
-        rotation: 90,
-        detail: 'A partir da recepção'
-      },
-      {
-        instruction: 'Continue até ouvir sons de atividades',
-        rotation: 0,
-        detail: 'Aproximadamente 20 passos'
-      },
-      {
-        instruction: 'Porta da recreação à sua esquerda',
-        rotation: -90,
-        detail: 'Identificação em Braille disponível'
-      }
-    ]
-  },
-  {
-    id: 'journalism_room',
-    name: 'Sala de jornalismo',
-    steps: [
-      {
-        instruction: 'Vá para o andar superior',
-        rotation: 0,
-        detail: 'Escada principal, use o corrimão'
-      },
-      {
-        instruction: 'Vire à direita no topo',
-        rotation: 90,
-        detail: 'Corredor das salas especializadas'
-      },
-      {
-        instruction: 'Segunda porta à esquerda',
-        rotation: -90,
-        detail: 'Placa com "Jornalismo" em Braille'
-      }
-    ]
-  },
-  {
-    id: 'auditorium',
-    name: 'Auditório',
-    steps: [
-      {
-        instruction: 'A partir da entrada, dirija-se ao centro do prédio',
-        rotation: 0,
-        detail: 'Siga o piso tátil principal'
-      },
-      {
-        instruction: 'Vire à esquerda na bifurcação',
-        rotation: -90,
-        detail: 'Você ouvirá ecos indicando espaço amplo'
-      },
-      {
-        instruction: 'Portas duplas do auditório à sua frente',
-        rotation: 0,
-        detail: 'Maçanetas grandes e identificação tátil'
-      }
-    ]
-  },
-  {
-    id: 'coordination_office',
-    name: 'Coordenação pedagógica',
-    steps: [
-      {
-        instruction: 'Dirija-se à área administrativa',
-        rotation: 0,
-        detail: 'Próximo à entrada principal'
-      },
-      {
-        instruction: 'Vire à esquerda após a recepção',
-        rotation: -90,
-        detail: 'Corredor administrativo'
-      },
-      {
-        instruction: 'Primeira porta à direita',
-        rotation: 90,
-        detail: 'Placa "Coordenação Pedagógica" em Braille'
-      }
-    ]
-  },
-  {
-    id: 'library',
-    name: 'Biblioteca',
-    steps: [
-      {
-        instruction: 'Vá para o andar superior',
-        rotation: 0,
-        detail: 'Escada principal com corrimão'
-      },
-      {
-        instruction: 'Continue em frente após a escada',
-        rotation: 0,
-        detail: 'Ambiente silencioso indicará proximidade'
-      },
-      {
-        instruction: 'Porta dupla da biblioteca à sua frente',
-        rotation: 0,
-        detail: 'Som abafado e cheiro de livros'
-      }
-    ]
-  }
-];
 
 export class RouteService {
   static async initializeDefaultData(): Promise<void> {
@@ -378,9 +11,9 @@ export class RouteService {
       const existingData = await AsyncStorage.getItem(STORAGE_KEY);
       if (!existingData) {
         const initialData: RouteData = {
-          destinations: DEFAULT_DESTINATIONS,
-          version: '1.0.0',
-          lastUpdated: new Date().toISOString(),
+          destinations: destinationsData.destinations as Destination[],
+          version: destinationsData.version,
+          lastUpdated: destinationsData.lastUpdated,
         };
         await AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(initialData));
       }
@@ -491,5 +124,86 @@ export class RouteService {
       console.error('Erro ao importar dados:', error);
       throw error;
     }
+  }
+
+  // Método para calcular proximidade baseado em Wi-Fi fingerprinting
+  static calculateWiFiProximity(currentSignals: Record<string, number>, targetFingerprint: Record<string, number>): number {
+    let totalDifference = 0;
+    let matchingSignals = 0;
+
+    for (const [bssid, targetDbm] of Object.entries(targetFingerprint)) {
+      if (currentSignals[bssid]) {
+        const difference = Math.abs(currentSignals[bssid] - targetDbm);
+        totalDifference += difference;
+        matchingSignals++;
+      }
+    }
+
+    if (matchingSignals === 0) return Infinity;
+    
+    // Retorna a diferença média - quanto menor, mais próximo
+    return totalDifference / matchingSignals;
+  }
+
+  // Método para encontrar a localização mais próxima baseada em sensores
+  static async findNearestLocation(
+    gpsCoords?: { lat: number; lng: number },
+    wifiSignals?: Record<string, number>
+  ): Promise<Destination | null> {
+    try {
+      const destinations = await this.getDestinations();
+      let bestMatch: Destination | null = null;
+      let bestScore = Infinity;
+
+      for (const destination of destinations) {
+        let score = 0;
+
+        // Calcular score baseado em Wi-Fi (mais preciso para indoor)
+        if (wifiSignals && destination.wifi) {
+          const wifiFingerprint: Record<string, number> = {};
+          destination.wifi.forEach(wifi => {
+            wifiFingerprint[wifi.mac] = wifi.dbm;
+          });
+          
+          const wifiScore = this.calculateWiFiProximity(wifiSignals, wifiFingerprint);
+          score += wifiScore * 0.7; // Wi-Fi tem peso maior para indoor
+        }
+
+        // Calcular score baseado em GPS (para outdoor e backup)
+        if (gpsCoords && destination.gps) {
+          const distance = this.calculateGPSDistance(
+            gpsCoords.lat, gpsCoords.lng,
+            destination.gps.lat, destination.gps.lng
+          );
+          score += distance * 0.3; // GPS tem peso menor para indoor
+        }
+
+        if (score < bestScore) {
+          bestScore = score;
+          bestMatch = destination;
+        }
+      }
+
+      return bestMatch;
+    } catch (error) {
+      console.error('Erro ao encontrar localização mais próxima:', error);
+      return null;
+    }
+  }
+
+  // Calcular distância GPS usando fórmula de Haversine
+  private static calculateGPSDistance(lat1: number, lng1: number, lat2: number, lng2: number): number {
+    const R = 6371e3; // Raio da Terra em metros
+    const φ1 = lat1 * Math.PI / 180;
+    const φ2 = lat2 * Math.PI / 180;
+    const Δφ = (lat2 - lat1) * Math.PI / 180;
+    const Δλ = (lng2 - lng1) * Math.PI / 180;
+
+    const a = Math.sin(Δφ/2) * Math.sin(Δφ/2) +
+              Math.cos(φ1) * Math.cos(φ2) *
+              Math.sin(Δλ/2) * Math.sin(Δλ/2);
+    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+
+    return R * c; // Distância em metros
   }
 }

@@ -1,0 +1,802 @@
+{
+  "version": "1.0.0",
+  "lastUpdated": "2025-01-27T10:00:00.000Z",
+  "destinations": [
+    {
+      "id": "room01",
+      "name": "Sala 01",
+      "type": "room",
+      "coordinates": {
+        "lat": -2.52945,
+        "lng": -44.30450
+      },
+      "wifi_fingerprint": {
+        "AA:BB:CC:DD:EE:01": -50,
+        "AA:BB:CC:DD:EE:02": -60,
+        "BB:CC:DD:EE:FF:03": -55
+      },
+      "connections": ["main_hall", "room02"],
+      "details": {
+        "capacity": 30,
+        "equipment": "Projetor, quadro branco",
+        "responsible": "Prof. João Silva"
+      },
+      "steps": [
+        {
+          "instruction": "Siga em frente acompanhando o piso tátil",
+          "rotation": 0,
+          "detail": "Caminhe cerca de 10 passos",
+          "distance_meters": 8
+        },
+        {
+          "instruction": "Vire à direita no próximo corredor",
+          "rotation": 90,
+          "detail": "Você ouvirá um bebedouro à esquerda",
+          "distance_meters": 5
+        },
+        {
+          "instruction": "Continue até a porta com a placa tátil Sala 01",
+          "rotation": 0,
+          "detail": "Mais 8 a 12 passos",
+          "distance_meters": 10
+        }
+      ]
+    },
+    {
+      "id": "room02",
+      "name": "Sala 02",
+      "type": "room",
+      "coordinates": {
+        "lat": -2.52950,
+        "lng": -44.30455
+      },
+      "wifi_fingerprint": {
+        "AA:BB:CC:DD:EE:01": -65,
+        "AA:BB:CC:DD:EE:02": -45,
+        "CC:DD:EE:FF:AA:04": -58
+      },
+      "connections": ["room01", "room2a", "main_hall"],
+      "details": {
+        "capacity": 25,
+        "equipment": "Computadores, projetor",
+        "responsible": "Prof. Maria Santos"
+      },
+      "steps": [
+        {
+          "instruction": "Siga pelo corredor principal",
+          "rotation": 0,
+          "detail": "Acompanhe o piso tátil por 15 passos",
+          "distance_meters": 12
+        },
+        {
+          "instruction": "Vire à esquerda após o bebedouro",
+          "rotation": -90,
+          "detail": "Som de água indica a proximidade",
+          "distance_meters": 3
+        },
+        {
+          "instruction": "Porta da Sala 02 estará à sua direita",
+          "rotation": 90,
+          "detail": "Placa em Braille na porta",
+          "distance_meters": 2
+        }
+      ]
+    },
+    {
+      "id": "room2a",
+      "name": "Sala 2-A",
+      "type": "room",
+      "coordinates": {
+        "lat": -2.52948,
+        "lng": -44.30458
+      },
+      "wifi_fingerprint": {
+        "AA:BB:CC:DD:EE:02": -42,
+        "CC:DD:EE:FF:AA:04": -55,
+        "DD:EE:FF:AA:BB:05": -62
+      },
+      "connections": ["room02", "main_hall"],
+      "details": {
+        "capacity": 20,
+        "equipment": "Quadro interativo",
+        "responsible": "Prof. Ana Costa"
+      },
+      "steps": [
+        {
+          "instruction": "Dirija-se ao corredor das salas numeradas",
+          "rotation": 0,
+          "detail": "Siga o piso tátil por 12 passos",
+          "distance_meters": 10
+        },
+        {
+          "instruction": "Localize a primeira porta à direita após a Sala 02",
+          "rotation": 90,
+          "detail": "Placa tátil identificará a Sala 2-A",
+          "distance_meters": 3
+        }
+      ]
+    },
+    {
+      "id": "room03",
+      "name": "Sala 03",
+      "type": "room",
+      "coordinates": {
+        "lat": -2.52955,
+        "lng": -44.30460
+      },
+      "wifi_fingerprint": {
+        "AA:BB:CC:DD:EE:03": -48,
+        "BB:CC:DD:EE:FF:03": -52,
+        "EE:FF:AA:BB:CC:06": -59
+      },
+      "connections": ["main_hall", "room04"],
+      "details": {
+        "capacity": 35,
+        "equipment": "Sistema de som, projetor",
+        "responsible": "Prof. Carlos Lima"
+      },
+      "steps": [
+        {
+          "instruction": "Continue pelo corredor principal",
+          "rotation": 0,
+          "detail": "Mantenha-se no piso tátil",
+          "distance_meters": 15
+        },
+        {
+          "instruction": "Após 20 passos, localize a terceira porta à direita",
+          "rotation": 90,
+          "detail": "Placa em Braille na altura do peito",
+          "distance_meters": 2
+        }
+      ]
+    },
+    {
+      "id": "room04",
+      "name": "Sala 04",
+      "type": "room",
+      "coordinates": {
+        "lat": -2.52960,
+        "lng": -44.30465
+      },
+      "wifi_fingerprint": {
+        "AA:BB:CC:DD:EE:04": -46,
+        "CC:DD:EE:FF:AA:04": -50,
+        "FF:AA:BB:CC:DD:07": -63
+      },
+      "connections": ["room03", "room4a", "main_hall"],
+      "details": {
+        "capacity": 40,
+        "equipment": "Laboratório de química",
+        "responsible": "Prof. Dra. Lucia Ferreira"
+      },
+      "steps": [
+        {
+          "instruction": "Siga pelo corredor até o meio do prédio",
+          "rotation": 0,
+          "detail": "Aproximadamente 25 passos no piso tátil",
+          "distance_meters": 20
+        },
+        {
+          "instruction": "Sala 04 estará à sua direita",
+          "rotation": 90,
+          "detail": "Porta com identificação tátil",
+          "distance_meters": 1
+        }
+      ]
+    },
+    {
+      "id": "room4a",
+      "name": "Sala 4-A",
+      "type": "room",
+      "coordinates": {
+        "lat": -2.52962,
+        "lng": -44.30467
+      },
+      "wifi_fingerprint": {
+        "AA:BB:CC:DD:EE:04": -44,
+        "FF:AA:BB:CC:DD:07": -58,
+        "AA:BB:CC:DD:EE:08": -65
+      },
+      "connections": ["room04", "main_hall"],
+      "details": {
+        "capacity": 15,
+        "equipment": "Laboratório de física",
+        "responsible": "Prof. Roberto Alves"
+      },
+      "steps": [
+        {
+          "instruction": "Localize a Sala 04 primeiro",
+          "rotation": 0,
+          "detail": "Use as instruções da Sala 04",
+          "distance_meters": 15
+        },
+        {
+          "instruction": "Sala 4-A fica adjacente à Sala 04",
+          "rotation": 0,
+          "detail": "Próxima porta no mesmo corredor",
+          "distance_meters": 3
+        }
+      ]
+    },
+    {
+      "id": "room06",
+      "name": "Sala 6",
+      "type": "room",
+      "coordinates": {
+        "lat": -2.52970,
+        "lng": -44.30470
+      },
+      "wifi_fingerprint": {
+        "BB:CC:DD:EE:FF:06": -47,
+        "CC:DD:EE:FF:AA:09": -53,
+        "DD:EE:FF:AA:BB:10": -61
+      },
+      "connections": ["main_hall", "back_bathrooms"],
+      "details": {
+        "capacity": 30,
+        "equipment": "Sala de aula padrão",
+        "responsible": "Prof. Sandra Oliveira"
+      },
+      "steps": [
+        {
+          "instruction": "Dirija-se ao final do corredor principal",
+          "rotation": 0,
+          "detail": "Continue por mais 15 passos após a Sala 04",
+          "distance_meters": 18
+        },
+        {
+          "instruction": "Sala 6 estará à sua direita",
+          "rotation": 90,
+          "detail": "Última sala antes da escada",
+          "distance_meters": 2
+        }
+      ]
+    },
+    {
+      "id": "room07",
+      "name": "Sala 7",
+      "type": "room",
+      "coordinates": {
+        "lat": -2.52945,
+        "lng": -44.30450
+      },
+      "wifi_fingerprint": {
+        "AA:BB:CC:DD:EE:07": -43,
+        "EE:FF:AA:BB:CC:11": -49,
+        "FF:AA:BB:CC:DD:12": -56
+      },
+      "connections": ["upstairs_hall", "room08"],
+      "details": {
+        "capacity": 25,
+        "equipment": "Sala multimídia",
+        "responsible": "Prof. Paulo Mendes",
+        "floor": 2
+      },
+      "steps": [
+        {
+          "instruction": "Suba as escadas para o andar superior",
+          "rotation": 0,
+          "detail": "Corrimão à direita, 12 degraus",
+          "distance_meters": 8
+        },
+        {
+          "instruction": "No topo, vire à esquerda",
+          "rotation": -90,
+          "detail": "Primeira porta à esquerda é a Sala 7",
+          "distance_meters": 5
+        }
+      ]
+    },
+    {
+      "id": "room08",
+      "name": "Sala 8",
+      "type": "room",
+      "coordinates": {
+        "lat": -2.52950,
+        "lng": -44.30455
+      },
+      "wifi_fingerprint": {
+        "AA:BB:CC:DD:EE:08": -41,
+        "FF:AA:BB:CC:DD:12": -54,
+        "AA:BB:CC:DD:EE:13": -60
+      },
+      "connections": ["room07", "upstairs_hall", "room09"],
+      "details": {
+        "capacity": 28,
+        "equipment": "Laboratório de informática",
+        "responsible": "Prof. Marcos Pereira",
+        "floor": 2
+      },
+      "steps": [
+        {
+          "instruction": "Suba para o andar superior",
+          "rotation": 0,
+          "detail": "Use o corrimão da escada",
+          "distance_meters": 8
+        },
+        {
+          "instruction": "Continue em frente após a escada",
+          "rotation": 0,
+          "detail": "Sala 8 estará à sua frente",
+          "distance_meters": 10
+        }
+      ]
+    },
+    {
+      "id": "room09",
+      "name": "Sala 09",
+      "type": "room",
+      "coordinates": {
+        "lat": -2.52955,
+        "lng": -44.30460
+      },
+      "wifi_fingerprint": {
+        "BB:CC:DD:EE:FF:09": -45,
+        "CC:DD:EE:FF:AA:14": -51,
+        "DD:EE:FF:AA:BB:15": -58
+      },
+      "connections": ["room08", "upstairs_hall", "room10"],
+      "details": {
+        "capacity": 32,
+        "equipment": "Sala de reuniões",
+        "responsible": "Coordenação",
+        "floor": 2
+      },
+      "steps": [
+        {
+          "instruction": "Vá para o andar superior",
+          "rotation": 0,
+          "detail": "Escada principal, 12 degraus",
+          "distance_meters": 8
+        },
+        {
+          "instruction": "Vire à direita no topo da escada",
+          "rotation": 90,
+          "detail": "Primeira porta à direita",
+          "distance_meters": 4
+        }
+      ]
+    },
+    {
+      "id": "room10",
+      "name": "Sala 10",
+      "type": "room",
+      "coordinates": {
+        "lat": -2.52965,
+        "lng": -44.30470
+      },
+      "wifi_fingerprint": {
+        "CC:DD:EE:FF:AA:10": -44,
+        "DD:EE:FF:AA:BB:15": -52,
+        "EE:FF:AA:BB:CC:16": -59
+      },
+      "connections": ["room09", "upstairs_hall", "library"],
+      "details": {
+        "capacity": 35,
+        "equipment": "Auditório pequeno",
+        "responsible": "Prof. Helena Castro",
+        "floor": 2
+      },
+      "steps": [
+        {
+          "instruction": "Suba para o segundo andar",
+          "rotation": 0,
+          "detail": "Use sempre o corrimão",
+          "distance_meters": 8
+        },
+        {
+          "instruction": "Sala 10 fica no final do corredor superior",
+          "rotation": 0,
+          "detail": "Continue em frente por 20 passos",
+          "distance_meters": 25
+        }
+      ]
+    },
+    {
+      "id": "front_bathrooms",
+      "name": "Banheiros da frente",
+      "type": "restroom",
+      "coordinates": {
+        "lat": -2.52940,
+        "lng": -44.30445
+      },
+      "wifi_fingerprint": {
+        "AA:BB:CC:DD:EE:01": -55,
+        "FF:AA:BB:CC:DD:17": -48,
+        "AA:BB:CC:DD:EE:18": -62
+      },
+      "connections": ["main_entrance", "main_hall"],
+      "details": {
+        "accessibility": "Adaptado para cadeirantes",
+        "hours": "06:00-22:00"
+      },
+      "steps": [
+        {
+          "instruction": "A partir da entrada principal, vire à direita",
+          "rotation": 90,
+          "detail": "Logo após a porta de entrada",
+          "distance_meters": 2
+        },
+        {
+          "instruction": "Continue por 8 passos",
+          "rotation": 0,
+          "detail": "Banheiros estarão à sua esquerda",
+          "distance_meters": 6
+        }
+      ]
+    },
+    {
+      "id": "back_bathrooms",
+      "name": "Banheiros dos fundos",
+      "type": "restroom",
+      "coordinates": {
+        "lat": -2.52975,
+        "lng": -44.30475
+      },
+      "wifi_fingerprint": {
+        "BB:CC:DD:EE:FF:06": -50,
+        "CC:DD:EE:FF:AA:19": -46,
+        "DD:EE:FF:AA:BB:20": -57
+      },
+      "connections": ["room06", "main_hall"],
+      "details": {
+        "accessibility": "Adaptado para cadeirantes",
+        "hours": "06:00-22:00"
+      },
+      "steps": [
+        {
+          "instruction": "Siga pelo corredor principal até o final",
+          "rotation": 0,
+          "detail": "Continue além de todas as salas",
+          "distance_meters": 30
+        },
+        {
+          "instruction": "Vire à esquerda no final do corredor",
+          "rotation": -90,
+          "detail": "Banheiros estarão à sua frente",
+          "distance_meters": 5
+        }
+      ]
+    },
+    {
+      "id": "upstairs_bathrooms",
+      "name": "Banheiros do andar superior",
+      "type": "restroom",
+      "coordinates": {
+        "lat": -2.52960,
+        "lng": -44.30465
+      },
+      "wifi_fingerprint": {
+        "AA:BB:CC:DD:EE:07": -47,
+        "EE:FF:AA:BB:CC:21": -53,
+        "FF:AA:BB:CC:DD:22": -61
+      },
+      "connections": ["upstairs_hall", "room07"],
+      "details": {
+        "accessibility": "Adaptado para cadeirantes",
+        "hours": "06:00-22:00",
+        "floor": 2
+      },
+      "steps": [
+        {
+          "instruction": "Suba a escada principal",
+          "rotation": 0,
+          "detail": "Corrimão à direita, 12 degraus",
+          "distance_meters": 8
+        },
+        {
+          "instruction": "No topo, vire à esquerda",
+          "rotation": -90,
+          "detail": "Banheiros estarão no final do corredor",
+          "distance_meters": 15
+        }
+      ]
+    },
+    {
+      "id": "computer_room",
+      "name": "Sala de informática",
+      "type": "lab",
+      "coordinates": {
+        "lat": -2.52935,
+        "lng": -44.30440
+      },
+      "wifi_fingerprint": {
+        "AA:BB:CC:DD:EE:COMP": -40,
+        "BB:CC:DD:EE:FF:COMP": -45,
+        "CC:DD:EE:FF:AA:COMP": -52
+      },
+      "connections": ["main_hall", "playroom"],
+      "details": {
+        "capacity": 20,
+        "equipment": "20 computadores, projetor, ar condicionado",
+        "responsible": "Prof. Tech Suporte",
+        "hours": "07:00-21:00"
+      },
+      "steps": [
+        {
+          "instruction": "Dirija-se ao corredor lateral esquerdo",
+          "rotation": -90,
+          "detail": "A partir da entrada principal",
+          "distance_meters": 8
+        },
+        {
+          "instruction": "Continue por 15 passos",
+          "rotation": 0,
+          "detail": "Som de computadores indicará proximidade",
+          "distance_meters": 12
+        },
+        {
+          "instruction": "Sala de informática à sua direita",
+          "rotation": 90,
+          "detail": "Porta dupla com identificação tátil",
+          "distance_meters": 2
+        }
+      ]
+    },
+    {
+      "id": "playroom",
+      "name": "Sala de recreação",
+      "type": "recreation",
+      "coordinates": {
+        "lat": -2.52930,
+        "lng": -44.30435
+      },
+      "wifi_fingerprint": {
+        "AA:BB:CC:DD:EE:REC": -42,
+        "BB:CC:DD:EE:FF:REC": -48,
+        "CC:DD:EE:FF:AA:REC": -55
+      },
+      "connections": ["computer_room", "main_hall"],
+      "details": {
+        "capacity": 50,
+        "equipment": "Jogos, mesa de ping-pong, TV",
+        "responsible": "Equipe de Recreação",
+        "hours": "08:00-20:00"
+      },
+      "steps": [
+        {
+          "instruction": "Entre pelo corredor lateral direito",
+          "rotation": 90,
+          "detail": "A partir da recepção",
+          "distance_meters": 10
+        },
+        {
+          "instruction": "Continue até ouvir sons de atividades",
+          "rotation": 0,
+          "detail": "Aproximadamente 20 passos",
+          "distance_meters": 16
+        },
+        {
+          "instruction": "Porta da recreação à sua esquerda",
+          "rotation": -90,
+          "detail": "Identificação em Braille disponível",
+          "distance_meters": 2
+        }
+      ]
+    },
+    {
+      "id": "journalism_room",
+      "name": "Sala de jornalismo",
+      "type": "lab",
+      "coordinates": {
+        "lat": -2.52952,
+        "lng": -44.30462
+      },
+      "wifi_fingerprint": {
+        "AA:BB:CC:DD:EE:JORN": -46,
+        "BB:CC:DD:EE:FF:JORN": -51,
+        "CC:DD:EE:FF:AA:JORN": -58
+      },
+      "connections": ["upstairs_hall", "library"],
+      "details": {
+        "capacity": 25,
+        "equipment": "Estúdio de gravação, câmeras, computadores",
+        "responsible": "Prof. Jornalismo",
+        "hours": "08:00-18:00",
+        "floor": 2
+      },
+      "steps": [
+        {
+          "instruction": "Vá para o andar superior",
+          "rotation": 0,
+          "detail": "Escada principal, use o corrimão",
+          "distance_meters": 8
+        },
+        {
+          "instruction": "Vire à direita no topo",
+          "rotation": 90,
+          "detail": "Corredor das salas especializadas",
+          "distance_meters": 5
+        },
+        {
+          "instruction": "Segunda porta à esquerda",
+          "rotation": -90,
+          "detail": "Placa com 'Jornalismo' em Braille",
+          "distance_meters": 8
+        }
+      ]
+    },
+    {
+      "id": "auditorium",
+      "name": "Auditório",
+      "type": "auditorium",
+      "coordinates": {
+        "lat": -2.52958,
+        "lng": -44.30448
+      },
+      "wifi_fingerprint": {
+        "AA:BB:CC:DD:EE:AUD": -38,
+        "BB:CC:DD:EE:FF:AUD": -44,
+        "CC:DD:EE:FF:AA:AUD": -50
+      },
+      "connections": ["main_hall", "coordination_office"],
+      "details": {
+        "capacity": 200,
+        "equipment": "Sistema de som profissional, projetor, palco",
+        "responsible": "Administração",
+        "hours": "Conforme eventos"
+      },
+      "steps": [
+        {
+          "instruction": "A partir da entrada, dirija-se ao centro do prédio",
+          "rotation": 0,
+          "detail": "Siga o piso tátil principal",
+          "distance_meters": 15
+        },
+        {
+          "instruction": "Vire à esquerda na bifurcação",
+          "rotation": -90,
+          "detail": "Você ouvirá ecos indicando espaço amplo",
+          "distance_meters": 8
+        },
+        {
+          "instruction": "Portas duplas do auditório à sua frente",
+          "rotation": 0,
+          "detail": "Maçanetas grandes e identificação tátil",
+          "distance_meters": 3
+        }
+      ]
+    },
+    {
+      "id": "coordination_office",
+      "name": "Coordenação pedagógica",
+      "type": "office",
+      "coordinates": {
+        "lat": -2.52942,
+        "lng": -44.30447
+      },
+      "wifi_fingerprint": {
+        "AA:BB:CC:DD:EE:COORD": -45,
+        "BB:CC:DD:EE:FF:COORD": -49,
+        "CC:DD:EE:FF:AA:COORD": -56
+      },
+      "connections": ["main_entrance", "auditorium"],
+      "details": {
+        "equipment": "Escritório administrativo",
+        "responsible": "Coordenação Pedagógica",
+        "hours": "08:00-17:00"
+      },
+      "steps": [
+        {
+          "instruction": "Dirija-se à área administrativa",
+          "rotation": 0,
+          "detail": "Próximo à entrada principal",
+          "distance_meters": 5
+        },
+        {
+          "instruction": "Vire à esquerda após a recepção",
+          "rotation": -90,
+          "detail": "Corredor administrativo",
+          "distance_meters": 6
+        },
+        {
+          "instruction": "Primeira porta à direita",
+          "rotation": 90,
+          "detail": "Placa 'Coordenação Pedagógica' em Braille",
+          "distance_meters": 3
+        }
+      ]
+    },
+    {
+      "id": "library",
+      "name": "Biblioteca",
+      "type": "library",
+      "coordinates": {
+        "lat": -2.52968,
+        "lng": -44.30472
+      },
+      "wifi_fingerprint": {
+        "AA:BB:CC:DD:EE:LIB": -43,
+        "BB:CC:DD:EE:FF:LIB": -47,
+        "CC:DD:EE:FF:AA:LIB": -54
+      },
+      "connections": ["upstairs_hall", "journalism_room", "room10"],
+      "details": {
+        "capacity": 100,
+        "equipment": "Acervo de livros, computadores de pesquisa",
+        "responsible": "Bibliotecária",
+        "hours": "07:00-21:00",
+        "floor": 2
+      },
+      "steps": [
+        {
+          "instruction": "Vá para o andar superior",
+          "rotation": 0,
+          "detail": "Escada principal com corrimão",
+          "distance_meters": 8
+        },
+        {
+          "instruction": "Continue em frente após a escada",
+          "rotation": 0,
+          "detail": "Ambiente silencioso indicará proximidade",
+          "distance_meters": 20
+        },
+        {
+          "instruction": "Porta dupla da biblioteca à sua frente",
+          "rotation": 0,
+          "detail": "Som abafado e cheiro de livros",
+          "distance_meters": 2
+        }
+      ]
+    },
+    {
+      "id": "main_entrance",
+      "name": "Entrada Principal",
+      "type": "entrance",
+      "coordinates": {
+        "lat": -2.52940,
+        "lng": -44.30445
+      },
+      "wifi_fingerprint": {
+        "AA:BB:CC:DD:EE:ENT": -35,
+        "BB:CC:DD:EE:FF:ENT": -41,
+        "CC:DD:EE:FF:AA:ENT": -48
+      },
+      "connections": ["main_hall", "front_bathrooms", "coordination_office"],
+      "details": {
+        "accessibility": "Rampa de acesso, porta automática",
+        "hours": "06:00-22:00"
+      },
+      "steps": []
+    },
+    {
+      "id": "main_hall",
+      "name": "Corredor Principal",
+      "type": "hallway",
+      "coordinates": {
+        "lat": -2.52950,
+        "lng": -44.30455
+      },
+      "wifi_fingerprint": {
+        "AA:BB:CC:DD:EE:HALL": -40,
+        "BB:CC:DD:EE:FF:HALL": -45,
+        "CC:DD:EE:FF:AA:HALL": -52
+      },
+      "connections": ["main_entrance", "room01", "room02", "room03", "room04", "computer_room", "playroom", "auditorium"],
+      "details": {
+        "features": "Piso tátil, corrimão, iluminação LED"
+      },
+      "steps": []
+    },
+    {
+      "id": "upstairs_hall",
+      "name": "Corredor Superior",
+      "type": "hallway",
+      "coordinates": {
+        "lat": -2.52955,
+        "lng": -44.30460
+      },
+      "wifi_fingerprint": {
+        "AA:BB:CC:DD:EE:UP": -42,
+        "BB:CC:DD:EE:FF:UP": -47,
+        "CC:DD:EE:FF:AA:UP": -54
+      },
+      "connections": ["room07", "room08", "room09", "room10", "library", "journalism_room", "upstairs_bathrooms"],
+      "details": {
+        "features": "Piso tátil, corrimão, iluminação LED",
+        "floor": 2
+      },
+      "steps": []
+    }
+  ]
+}
