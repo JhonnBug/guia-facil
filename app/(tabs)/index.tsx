@@ -7,6 +7,7 @@ import {
   StyleSheet,
   useColorScheme,
   Alert,
+  Image,
 } from 'react-native';
 import { useRouter } from 'expo-router';
 import * as Speech from 'expo-speech';
@@ -83,8 +84,21 @@ export default function DestinationsScreen() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.header}>Guia Fácil</Text>
+      <View style={styles.logoContainer}>
+        <Image 
+          source={require('@/assets/images/logo app.png')}
+          style={styles.appLogo}
+          resizeMode="contain"
+        />
+      </View>
       <Text style={styles.subtitle}>Projeto SE LIGA JOVEM</Text>
+      <View style={styles.sponsorContainer}>
+        <Image 
+          source={require('@/assets/images/logo do projeto se liga jovem.png')}
+          style={styles.sponsorLogo}
+          resizeMode="contain"
+        />
+      </View>
       <Text style={styles.instruction}>
         Selecione um destino para navegar:
       </Text>
@@ -112,22 +126,33 @@ const getStyles = (colorScheme: 'light' | 'dark' | null) => {
       padding: 20,
       paddingTop: 60,
     },
-    header: {
-      fontSize: 32,
-      fontWeight: 'bold',
-      color: isDark ? '#FFFF00' : '#000000',
-      textAlign: 'center',
+    logoContainer: {
+      alignItems: 'center',
       marginBottom: 10,
+    },
+    appLogo: {
+      width: 200,
+      height: 80,
     },
     subtitle: {
       fontSize: 18,
       color: isDark ? '#00FFFF' : '#333333',
       textAlign: 'center',
+      marginBottom: 15,
+      fontWeight: '600',
+    },
+    sponsorContainer: {
+      alignItems: 'center',
       marginBottom: 30,
+    },
+    sponsorLogo: {
+      width: 120,
+      height: 30,
+      opacity: 0.8,
     },
     instruction: {
       fontSize: 20,
-      color: isDark ? '#FFFFFF' : '#000000',
+      color: isDark ? '#00FFFF' : '#333333',
       textAlign: 'center',
       marginBottom: 30,
       fontWeight: '600',
